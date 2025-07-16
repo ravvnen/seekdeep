@@ -57,6 +57,6 @@ dist/
 
 extractor_input
 
-seekdeep_results
-
+seekdeep_results*
 temp_*
+fastp*
