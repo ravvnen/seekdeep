@@ -85,3 +85,5 @@ Which will actually do exactly described above, afterwards while typing flags us
 # Tutorials
 
 Tutorials and detailed usages located at [http://seekdeep.brown.edu](http://seekdeep.brown.edu) or email nicholas.hathaway@umassmed.edu for more information  
+
+make -j$(nproc)
