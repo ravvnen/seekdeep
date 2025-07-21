@@ -1,0 +1,62 @@
+{
+  "name": "SeekDeep Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/seekdeep",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/seekdeep,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "C_Cpp.default.compilerPath": "/usr/bin/g++",
+        "C_Cpp.default.cStandard": "c11",
+        "C_Cpp.default.cppStandard": "c++17",
+        "C_Cpp.default.intelliSenseMode": "gcc-x64",
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "files.associations": {
+          "*.mk": "makefile",
+          "Makefile*": "makefile",
+          "makefile*": "makefile"
+        }
+      },
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake",
+        "vadimcn.vscode-lldb"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": true
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "/tmp/setup-environment.sh",
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "PATH": "/workspaces/seekdeep/bin:${PATH}",
+    "CC": "gcc",
+    "CXX": "g++",
+    "MAKEFLAGS": "-j$(nproc)"
+  },
+  "forwardPorts": [8080, 3000],
+  "portsAttributes": {
+    "8080": {
+      "label": "SeekDeep Server",
+      "onAutoForward": "notify"
+    }
+  }
+}

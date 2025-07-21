@@ -13,6 +13,33 @@ Please cite the following citation:  Hathaway, Nicholas J., Christian M. Parobek
 
  See installing tab on [http://seekdeep.brown.edu/](http://seekdeep.brown.edu/) for full details for installing for each operating system.
 
+## Quick Start with Development Container
+
+The easiest way to get started with SeekDeep is using our pre-configured development container:
+
+### GitHub Codespaces (Recommended)
+1. Click the "Code" button on this repository
+2. Select "Codespaces" → "Create codespace on master"
+3. Wait for the environment to set up automatically
+4. SeekDeep will be built and ready to use!
+
+### VS Code Dev Container
+1. Install [VS Code](https://code.visualstudio.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+2. Clone this repository
+3. Open in VS Code and click "Reopen in Container" when prompted
+4. The container will build and configure SeekDeep automatically
+
+### Quick Test
+After the container starts, run:
+```bash
+./quickstart.sh  # Quick start guide
+SeekDeep         # Show available commands
+```
+
+For more details, see [.devcontainer/README.md](.devcontainer/README.md).
+
+## Manual Installation
+
 ## Dependecnies
 Need to have at least g++-7, or clang++-3.8 compiler, the default assumption is g++-7, can change what compilier is used by giving -CC and -CXX to ./congifure.py  
 Examples  
