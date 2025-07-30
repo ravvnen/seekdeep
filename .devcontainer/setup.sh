@@ -25,7 +25,8 @@ sudo apt-get install -y \
     python3-pip \
     python3-setuptools \
     make \
-    file
+    file \
+    fastp
 
 # Install modern GCC/G++ (GCC-11 is available in Ubuntu 22.04)
 sudo apt-get install -y \

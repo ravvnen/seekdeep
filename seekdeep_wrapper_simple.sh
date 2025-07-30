@@ -18,8 +18,35 @@ OUTPUT_DIR="seekdeep_results"
 mkdir -p "$CLEAN_DIR"
 mkdir -p "$OUTPUT_DIR"
 
+echo "Checking require files .."
+if [ ! -f "$ID_FILE" ]; then
+    echo "Error: ID file $ID_FILE does not exist."
+    echo "Please provide a valid ID file."
+    exit 1
+fi
+
+if [ ! -f "$OVERLAP_FILE" ]; then
+    echo "⚠️  Creating missing overlap status file: $OVERLAP_FILE"
+    # Create a basic overlap status file
+    echo -e "target\toverlap" > "$OVERLAP_FILE"
+    echo -e "target1\ttrue" >> "$OVERLAP_FILE"
+    echo -e "target2\ttrue" >> "$OVERLAP_FILE"
+    echo "📝 Created basic overlap status file."
+fi
+
+if [ ! -d "$FASTQ_DIR" ]; then
+    echo "❌ ERROR: Directory $FASTQ_DIR not found!"
+    echo "Available directories in extractor_input:"
+    ls -la extractor_input/ 2>/dev/null || echo "extractor_input/ doesn't exist"
+    exit 1
+fi
+
+echo "✅ All required files exist"
+echo
+
 echo "Step 1: Running fastp preprocessing..."
 echo "====================================="
+
 
 # Run fastp on all samples
 for R1 in "$FASTQ_DIR"/*_R1_001.fastq.gz; do

@@ -61,3 +61,15 @@ extractor_input
 seekdeep_results*
 temp_*
 fastp*
+
+pipeline_results/
+pipeline_results/*
+pipeline_results
+
+CPMP_DRC_pl_1
+CPMP_DRC_pl_1_processed
+CPMP_DRC_pl_1_results
+
+CPS_DRC_pl_1
+CPS_DRC_pl_1_processed
+CPS_DRC_pl_1_results
